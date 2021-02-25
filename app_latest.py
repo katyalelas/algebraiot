@@ -18,7 +18,7 @@ app  = Flask(__name__)
 app.json_encoder = Encoder
 
 app.config['MYSQL_USER'] = 'telemetryuser'
-app.config['MYSQL_PASSWORD'] = 'telemetryuser123'
+app.config['MYSQL_PASSWORD'] = 'password'
 app.config['MYSQL_DB'] = 'telemetryDB'
 app.config['MYSQL_HOST']  ='localhost'
 mysql.init_app(app)
@@ -40,7 +40,7 @@ def get_all():
     conn.commit()
     cursor.close()
     conn.close()
-
+	
     return jsonify({'measurements': rows})
     #return json.dumps(rows, cls = Encoder)
 
